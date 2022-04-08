@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+        <!-- Bootstrap CSS -->
+        <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+            crossorigin="anonymous"
+        />
+        <link
+            rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css"
+        />
+
+        <title>Hello, world!</title>
+    </head>
+    <body>
+        <script
+            src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+            crossorigin="anonymous"
+        ></script>
+
+        <div class="container">
+            <div class="row border-bottom">
+                <div class="col-sm-12 text-center">
+                    <h1 class="display-1">Нагло воруем музыку из Spotify</h1>
+                    <small class="text-muted">а то хули они?</small>
+                </div>
+            </div>
+
+            <div class="row justify-content-md-center">
+                <div class="col-sm-6">
+                    <ol>
+                        <li>
+                            Ставим <strong>Python</strong>.
+                            <a
+                                href="https://www.python.org/ftp/python/3.10.4/python-3.10.4-amd64.exe"
+                            >
+                                Скачать можно тут
+                            </a>
+
+                            <div class="alert alert-warning" role="alert">
+                                <strong>Важно!</strong>
+                                <div>
+                                    Сразу в начале установки нужно поставить
+                                    чекбокс
+                                    <span class="badge bg-secondary">
+                                        Add Python 3.10 to PATH
+                                    </span>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            На всякий случай ставим свежий
+                            <strong>VC Redist</strong>.
+                            <a
+                                href="https://aka.ms/vs/17/release/vc_redist.x64.exe"
+                            >
+                                Взять можно здесь
+                            </a>
+                        </li>
+                        <li>
+                            Далее создаем какую-нибудь папку, в которую мы будем
+                            качать музыку
+                            <div>Например: <code>C:\spotdl\</code></div>
+                        </li>
+                        <li>
+                            Последнее что нужно скачать -
+                            <strong>ffmpeg</strong>.
+                            <a
+                                href="https://github.com/BtbN/FFmpeg-Builds/releases/download/latest/ffmpeg-master-latest-win64-lgpl-shared.zip"
+                            >
+                                Взять можно здесь
+                            </a>
+                            <div>
+                                Сам <strong>ffmpeg</strong> нужно распаковать в
+                                какую-нибудь папку, для простоты туда же куда
+                                будем качать музыку. Например:
+                                <code>C:\spotdl\ffmpeg\</code>
+                            </div>
+                            <div>
+                                Отсюда нам нужен будет полный путь до
+                                <code>exe</code> файла, то есть:
+                                <code>C:\spotdl\ffmpeg\bin\ffmpeg.exe</code>
+                            </div>
+                        </li>
+                        <li>
+                            Далее открываем <code>cmd</code> от имени админа
+                            <div>
+                                Жмем
+                                <kbd>
+                                    <svg
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        width="16"
+                                        height="16"
+                                        fill="currentColor"
+                                        class="bi bi-windows"
+                                        viewBox="0 0 16 16"
+                                    >
+                                        <path
+                                            d="M6.555 1.375 0 2.237v5.45h6.555V1.375zM0 13.795l6.555.933V8.313H0v5.482zm7.278-5.4.026 6.378L16 16V8.395H7.278zM16 0 7.33 1.244v6.414H16V0z"
+                                        />
+                                    </svg>
+                                    Win
+                                </kbd>
+                                -> пишем <kbd>cmd</kbd> -> <kbd>ПКМ</kbd> ->
+                                Запуск от админа
+                            </div>
+                        </li>
+                        <li>
+                            В <code>cmd</code> нужно перейти в папку в которой
+                            мы будем работать и в которую будем качать музыку,
+                            то есть: <code>C:\spotdl\</code>
+                            <div>
+                                В <code>cmd</code> пишем:
+                                <code>cd C:\spotdl\</code>
+                            </div>
+                        </li>
+                        <li>
+                            Далее пишем: <code>pip install spotdl</code> и ждем
+                        </li>
+                        <li>
+                            Когда будет готово можем качать музыку
+                            <div>
+                                Главное не забыть про путь до
+                                <strong>ffmpeg</strong>
+                            </div>
+                            <div>
+                                Общий формат команды такой:
+                                <div>
+                                    <code>
+                                        spotdl --ffmpeg &lt;путь до ffmpeg&gt;
+                                        &lt;ссылка на Spotify&gt;
+                                    </code>
+                                </div>
+                            </div>
+                            <div>
+                                Пример полной команды:
+                                <div>
+                                    <code>
+                                        spotdl --ffmpeg
+                                        C:\spotdl\ffmpeg\bin\ffmpeg.exe
+                                        https://open.spotify.com/playlist/0otUzePuYwSa4LXVYQ1bOF
+                                    </code>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            Музыка появится в этой же папке, то есть в
+                            <code> C:\spotdl\ </code>
+                            <div>
+                                Общий алгоритм работы
+                                <code>spotdl</code> примерно такой:
+                                <ul>
+                                    <li>
+                                        Берет список треков из ссылки на
+                                        Spotify. Ссылка может быть на трек, на
+                                        альбом, на артиста, на плейлист(не
+                                        приватный)
+                                    </li>
+                                    <li>
+                                        По этому списку трек ищется на
+                                        Youtube.Music
+                                        <div>
+                                            Дополнительно к артисту-названию
+                                            проверяется и длительность, для того
+                                            чтобы Youtube.Music не подсунул
+                                            чего-то не того в своем поиске
+                                        </div>
+                                    </li>
+                                    <li>
+                                        Трек скачивается с Youtube и
+                                        конвертируется в аудио через
+                                        <code>ffmpeg</code>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
