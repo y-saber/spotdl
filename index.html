@@ -76,26 +76,6 @@
                             <div>Например: <code>C:\spotdl\</code></div>
                         </li>
                         <li>
-                            Последнее что нужно скачать -
-                            <strong>ffmpeg</strong>.
-                            <a
-                                href="https://github.com/BtbN/FFmpeg-Builds/releases/download/latest/ffmpeg-master-latest-win64-lgpl-shared.zip"
-                            >
-                                Взять можно здесь
-                            </a>
-                            <div>
-                                Сам <strong>ffmpeg</strong> нужно распаковать в
-                                какую-нибудь папку, для простоты туда же куда
-                                будем качать музыку. Например:
-                                <code>C:\spotdl\ffmpeg\</code>
-                            </div>
-                            <div>
-                                Отсюда нам нужен будет полный путь до
-                                <code>exe</code> файла, то есть:
-                                <code>C:\spotdl\ffmpeg\bin\ffmpeg.exe</code>
-                            </div>
-                        </li>
-                        <li>
                             Далее открываем <code>cmd</code> от имени админа
                             <div>
                                 Жмем
@@ -131,17 +111,15 @@
                             Далее пишем: <code>pip install spotdl</code> и ждем
                         </li>
                         <li>
+                            Далее пишем: <code>spotdl --download-ffmpeg</code>
+                        </li>
+                        <li>
                             Когда будет готово можем качать музыку
-                            <div>
-                                Главное не забыть про путь до
-                                <strong>ffmpeg</strong>
-                            </div>
                             <div>
                                 Общий формат команды такой:
                                 <div>
                                     <code>
-                                        spotdl --ffmpeg &lt;путь до ffmpeg&gt;
-                                        &lt;ссылка на Spotify&gt;
+                                        spotdl &lt;ссылка на Spotify&gt;
                                     </code>
                                 </div>
                             </div>
@@ -149,9 +127,7 @@
                                 Пример полной команды:
                                 <div>
                                     <code>
-                                        spotdl --ffmpeg
-                                        C:\spotdl\ffmpeg\bin\ffmpeg.exe
-                                        https://open.spotify.com/playlist/0otUzePuYwSa4LXVYQ1bOF
+                                        spotdl https://open.spotify.com/playlist/0otUzePuYwSa4LXVYQ1bOF
                                     </code>
                                 </div>
                             </div>
@@ -181,8 +157,7 @@
                                     </li>
                                     <li>
                                         Трек скачивается с Youtube и
-                                        конвертируется в аудио через
-                                        <code>ffmpeg</code>
+                                        конвертируется в аудио
                                         <div>
                                             У трека сохраняются все метаданные и
                                             обложка
